@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  # Allows you to run the workflow manually from the GitHub Actions tab
+  workflow_dispatch:
+
+  # Runs on a schedule (this example runs every day at midnight UTC)
+  schedule:
+    - cron: "0 0 * * *"
+
+  # Runs after another workflow completes
+  workflow_run:
+    workflows: ["Build"]
+    types:
+      - completed
